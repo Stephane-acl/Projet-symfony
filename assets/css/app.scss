@@ -1,12 +1,23 @@
-@import "~bootstrap/scss/bootstrap";
-
 $primary: #193365;
 $secondary: #EFEFEF;
 $white: #FFF;
+$colorNavLink: #EFEFEF;
 
 body {
     background-color: $white ;
 }
 
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary
+);
 
+.nav-link-color {
+    color: $colorNavLink;
+    margin-left: 10px;
+}
+.nav-link-color:hover {
+    color: $colorNavLink;
+}
 
+@import "~bootstrap/scss/bootstrap";
