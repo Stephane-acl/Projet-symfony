@@ -1,0 +1,10 @@
+{% extends'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ slug }}</h1>
+
+    <a href="{{ path('wild_show', {'slug':'house-of-cards'}) }}">Afficher le nom d'une série</a> <br />
+    <a href="{{ path('wild_show', {'slug':'ma-superbe-serie'}) }}">Afficher le nom d'une autre série</a>
+
+
+{% endblock %}

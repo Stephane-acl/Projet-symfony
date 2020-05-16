@@ -1,26 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="/"><img src="{{ asset('/images/tv.svg') }}" alt="Logo tv !" height="50px"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="{{ path('app_index') }}"><img src="{{ asset('/images/tv.svg') }}" alt="Logo tv !"
+                                                                height="50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link-color" href="/wild"><strong>Wild séries</strong><span class="sr-only">(current)</span></a>
+                <a class="nav-link-color" href="{{ path('wild_index') }}"><strong>Wild séries</strong><span
+                            class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Séries
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Séries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Les plus populaires</a>
-                    <a class="dropdown-item" href="#">Les plus récentes</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Toutes les séries</a>
+                    <a class="dropdown-item"
+                       href="{{ path('wild_show', {'slug':'cliquez-sur-le-lien-pour-afficher-un-slug' }) }}">Toutes
+                        les séries</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Films
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
