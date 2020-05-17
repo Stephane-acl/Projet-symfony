@@ -18,20 +18,19 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"
-                       href="{{ path('wild_show', {'slug':'cliquez-sur-le-lien-pour-afficher-un-slug' }) }}">Toutes
+                       href="{{ path('wild_show', {'slug': "walking-dead" }) }}">Toutes
                         les séries</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Films
+                    Catégories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Les plus populaires</a>
-                    <a class="dropdown-item" href="#">Les plus récentes</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Toutes les séries</a>
+                    <a class="dropdown-item" href="{{ path('show_category', {'categoryName': 'horreur' }) }}">Horreur</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Comédie</a>
                 </div>
             </li>
         </ul>
