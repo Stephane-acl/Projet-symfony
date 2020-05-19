@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 style="color:#193365; margin-top:25px" class="text-center">Saison {{ season.number }} de {{ program.title }}</h1>
+    <p class="text-center">{{ season.description }}</p>
+    <hr/>
+
+    {% for episode in episodes %}
+
+        <div class="card mb-3  col-8 bg-secondary container-fluid">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ episode.poster }}" class="card-img" alt="{{ episode.title }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 style="color:#193365" class="card-title">Episode {{ episode.number }}
+                            : {{ episode.title }}</h5>
+                        <p class="card-text">{{ episode.synopsis }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+
+    {% endfor %}
+    <a href="{{ path('show_program', {'slug': 'penny-dreadful'}) }}">Retour aux saisons</a>
+{% endblock %}
