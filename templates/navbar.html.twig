@@ -11,7 +11,7 @@
                 <a class="nav-link-color" href="{{ path('wild_index') }}"><strong>Wild séries</strong><span
                             class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="margin-left: 15px">
                 <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Séries
@@ -24,7 +24,7 @@
                         les séries</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="margin-left: 15px">
                 <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Catégories
@@ -35,6 +35,11 @@
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Comédie</a>
                 </div>
+            </li>
+            <li style="margin-left: 15px">
+            <div>
+                <a href="{{ path('category_add') }}" class="nav-link-color">Admin</a>
+            </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
