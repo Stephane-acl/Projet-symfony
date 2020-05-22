@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Season index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="margin: 30px">Listes des saisons</h1>
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-12">
+                <div class="card h-100 justify-content-center">
+                    <div>
+                        <table class="table">
+                            <thead class="btn-primary">
+                            <tr class="nav-link-color">
+                                <th>Catégorie</th>
+                                <th>Série</th>
+                                <th>Saison</th>
+                                <th>Année</th>
+                                <th>Description</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for season in seasons %}
+                                <tr>
+                                    <td>{{ season.program.category.name }}</td>
+                                    <td>{{ season.program.title }}</td>
+                                    <td>{{ season.number }}</td>
+                                    <td>{{ season.year }}</td>
+                                    <td>{{ season.description }}</td>
+                                    <td>
+                                       <p><a href="{{ path('season_show', {'id': season.id}) }}">
+                                            <button class="btn btn-primary">Voir</button></p>
+                                        </a>
+                                        <p><a href="{{ path('season_edit', {'id': season.id}) }}">
+                                            <button class="btn btn-secondary">Editer</button>
+                                        </a></p>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p style="margin-top: 10px"><a href="{{ path('season_new') }}">
+                        <button class="btn btn-primary">Créer une nouvelle saison</button>
+                    </a></p>
+                <p><a href="{{ path('admin_index') }}">Retour au menu</a></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

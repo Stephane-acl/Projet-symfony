@@ -19,4 +19,8 @@ $theme-colors: (
     color: $colorNavLink;
 }
 
+h1 {
+    color: $primary;
+}
+
 @import "~bootstrap/scss/bootstrap";
