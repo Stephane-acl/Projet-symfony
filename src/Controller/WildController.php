@@ -6,10 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+    /**
+     * @Route("/wild", name="wild_")
+     */
+
 class WildController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_index")
+     * @Route("/", name="index")
      */
     public function index(): Response
     {
@@ -19,7 +23,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/show/{slug}",
+     * @Route("/show/{slug}",
      *      requirements={"slug"="[0-9-a-z]+$"},
      *      defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
      *      name="wild_show")
