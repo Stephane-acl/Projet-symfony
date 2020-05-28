@@ -26,7 +26,7 @@ class WildController extends AbstractController
      * @Route("/show/{slug}",
      *      requirements={"slug"="[0-9-a-z]+$"},
      *      defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
-     *      name="wild_show")
+     *      name="show")
      * @param $slug
      * @return Response
      */
