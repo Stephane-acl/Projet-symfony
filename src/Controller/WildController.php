@@ -12,10 +12,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/wild", name="wild_")
+ */
+
 class WildController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_index")
+     * @Route("/", name="index")
+     * @param Request $request
+     * @return Response
      */
     public function index(Request $request): Response
     {
@@ -43,10 +49,10 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/show/{slug}",
+     * @Route("/show/{slug}",
      *      requirements={"slug"="[0-9-a-z]+$"},
      *      defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
-     *      name="wild_show")
+     *      name="show")
      * @param $slug
      * @return Response
      */
@@ -74,7 +80,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/category/{categoryName}",
+     * @Route("/category/{categoryName}",
      *     defaults={"categoryName"="Aucune catégorie sélectionnée, veuillez choisir une catégorie"},
      *     name="show_category")
      * @param string $categoryName
@@ -112,7 +118,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/program/{slug}",
+     * @Route("/program/{slug}",
      *      requirements={"slug"="[0-9-a-z]+$"},
      *      defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
      *      name="show_program")
@@ -141,7 +147,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/season/{id}",
+     * @Route("/season/{id}",
      *      requirements={"slug"="[0-9-a-z]+$"},
      *      defaults={"id"= null},
      *      name="show_season")
@@ -169,7 +175,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/episode/{id}",
+     * @Route("/episode/{id}",
      *      name="show_episode")
      * @param Episode $episode
      * @return Response

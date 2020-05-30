@@ -23,7 +23,7 @@
                 <p><strong>Categorie :</strong> {{ program.category.name }}</p>
                 <p><strong>Pays :</strong> {{ program.country }}</p>
                 {% for season in seasons %}
-                    <a href="{{ path('show_season', {'id': season.id}) }}">
+                    <a href="{{ path('wild_show_season', {'id': season.id}) }}">
                         <button ype="button" class="btn btn-primary">Saison {{ season.number }}</button>
                     </a>
                 {% endfor %}

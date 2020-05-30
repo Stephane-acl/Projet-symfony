@@ -12,12 +12,12 @@
 
                 {% for episode in episodes %}
                     <div class="text-center">
-                        <h5>Episode {{ episode.number }}<a href="{{ path('show_episode', {'id': episode.id }) }}">
+                        <h5>Episode {{ episode.number }}<a href="{{ path('wild_show_episode', {'id': episode.id }) }}">
                             {{ episode.title }}</a></h5>
                     </div>
                 {% endfor %}
 
-                <a href="{{ path('show_program', {'slug': 'penny-dreadful'}) }}"><button type="submit" class="btn btn-primary">Retour</button></a>
+                <a href="{{ path('wild_show_program', {'slug': 'penny-dreadful'}) }}"><button type="submit" class="btn btn-primary">Retour</button></a>
             </div>
         </div>
     </div>
