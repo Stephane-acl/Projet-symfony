@@ -8,6 +8,13 @@ $theme-colors: (
         "secondary": $secondary
 );
 
+@mixin flexCenter($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
 .nav-link-color {
     color: $colorNavLink;
 }
@@ -17,6 +24,10 @@ $theme-colors: (
 
 h1 {
     color: $primary;
+}
+
+.container-center {
+    @include flexCenter(column);
 }
 
 @import "~bootstrap/scss/bootstrap";

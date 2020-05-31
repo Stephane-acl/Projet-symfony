@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-center">
+<h1 style="margin: 25px">{{ actor.name }}</h1>
+
+    <img src="{{ actor.picture }}" height="350px" alt="Photo de {{ actor.name }}">
+<h2 style="margin: 25px">Séries principales :</h2>
+    <ul>
+    {% for program in actor.programs %}
+    <li><a href="{{ path('program_show', {'id': program.id}) }}">{{ program.title }}</a></li>
+    {% else %}
+        <li>Aucun série pour cette acteur</li>
+    {% endfor %}
+    </ul>
+    </div>
+
+{% endblock %}
