@@ -35,7 +35,7 @@ class Program
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @Assert\Regex(
-     *     pattern="/^plus belle la vie/i",
+     *     pattern="/plus belle la vie/i",
      *     match=false,
      *     message="On parle de vraies séries ici" )
      */
