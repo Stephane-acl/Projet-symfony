@@ -35,7 +35,7 @@ class Program
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @Assert\Regex(
-     *     pattern="/^plus belle la vie/i",
+     *     pattern="/plus belle la vie/i",
      *     match=false,
      *     message="On parle de vraies séries ici" )
      */
@@ -52,7 +52,7 @@ class Program
      */
     private $category;
 
-    /**
+    /**+-
      * @ORM\Column(type="string", length=150)
      */
     private $country;
@@ -71,6 +71,11 @@ class Program
      * @ORM\ManyToMany(targetEntity=Actor::class, mappedBy="programs")
      */
     private $actors;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -210,6 +215,18 @@ class Program
             $this->actors->removeElement($actor);
             $actor->removeProgram($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

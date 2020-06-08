@@ -35,10 +35,10 @@
                                     <td>{{ episode.synopsis }}</td>
                                     <td><img height="280px" src="{{ episode.poster }}" alt="{{ episode.title }}"></td>
                                     <td>
-                                        <p><a href="{{ path('episode_show', {'id': episode.id}) }}">
+                                        <p><a href="{{ path('episode_show', {'slug': episode.slug}) }}">
                                                 <button class="btn btn-primary">Voir</button>
                                             </a></p>
-                                        <p><a href="{{ path('episode_edit', {'id': episode.id}) }}">
+                                        <p><a href="{{ path('episode_edit', {'slug': episode.slug}) }}">
                                                 <button class="btn btn-secondary">Editer</button>
                                             </a></p>
                                     </td>

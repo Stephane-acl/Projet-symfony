@@ -32,7 +32,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <a href="{{ path('episode_edit', {'id': episode.id}) }}">
+                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">
                         <button class="btn btn-primary">Editer</button>
                         <div style="margin-top: 10px">{{ include('episode/_delete_form.html.twig') }}</div>
                     </a>
