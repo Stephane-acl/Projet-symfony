@@ -3,12 +3,16 @@ $secondary: #EFEFEF;
 $white: #FFF;
 $colorNavLink: #EFEFEF;
 
+// Fonts
+$titlefont : 'Roboto', cursive;
+$textfont : 'Montserrat', sans-serif;
+
 $theme-colors: (
         "primary": $primary,
         "secondary": $secondary
 );
 
-@mixin flexCenter($direction){
+@mixin flexCenter($direction) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,16 +22,39 @@ $theme-colors: (
 .nav-link-color {
     color: $colorNavLink;
 }
+
 .nav-link-color:hover {
     color: $colorNavLink;
 }
 
 h1 {
     color: $primary;
+    font-family: $titlefont;
 }
 
 .container-center {
     @include flexCenter(column);
 }
+
+.container-comment-form {
+    border: 1px solid $primary;
+    border-radius: 15px;
+    width: 60%;
+    background-color: $primary;
+    color: $white;
+    padding: 15px;
+}
+
+.container-comment-list {
+    border: 1px solid $primary;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 45%;
+}
+
+.title-comment {
+    margin: 25px;
+}
+
 
 @import "~bootstrap/scss/bootstrap";

@@ -17,7 +17,8 @@
                     Séries
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ path('wild_show_program', {'slug': "penny-dreadful"}) }}">Penny Dreadful</a>
+                    <a class="dropdown-item" href="{{ path('wild_show_program', {'slug': "penny-dreadful"}) }}">Penny
+                        Dreadful</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item"
                        href="{{ path('wild_show', {'slug': "walking-dead" }) }}">Toutes
@@ -37,14 +38,21 @@
                 </div>
             </li>
             <li style="margin-left: 15px">
-            <div>
-                <a href="{{ path('admin_index') }}" class="nav-link-color">Admin</a>
-            </div>
+                <div>
+                    <a href="{{ path('admin_index') }}" class="nav-link-color">Admin</a>
+                </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
+        <div style="margin-left: 15px">
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}" class="nav-link-color">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="nav-link-color">Connexion</a>
+            {% endif %}
+        </div>
     </div>
 </nav>

@@ -31,3 +31,6 @@ https://www.loom.com/share/d313fcaf471543aaaabf680430c18ee0
 
 17 - Symfony : Introduction aux “Services”
 https://www.loom.com/share/fe0bf6646a7e484e8548aa83b100a232
+
+19 - Symfony : Gestion des utilisateurs
+https://www.loom.com/share/4973dfb2234c401897e80b7a4e396ede
