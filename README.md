@@ -34,3 +34,6 @@ https://www.loom.com/share/fe0bf6646a7e484e8548aa83b100a232
 
 19 - Symfony : Gestion des utilisateurs
 https://www.loom.com/share/4973dfb2234c401897e80b7a4e396ede
+
+18 - Symfony : Envoi d’e-mail
+https://www.loom.com/share/808f8d3103e44c0ead3c6cf63da780f7

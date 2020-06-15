@@ -88,7 +88,7 @@ class EpisodeController extends AbstractController
             ->getRepository(Comment::class)
             ->findBy(['episode' => $episode]);
         dump($comments);
-        return $this->render('episode/show.html.twig', [
+        return $this->render('episode/notification.html.twig', [
             'episode' => $episode,
             'comments' => $comments,
             'form' => $form->CreateView()
