@@ -32,11 +32,11 @@
                         </tr>
                         </tbody>
                     </table>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">
                         <button class="btn btn-primary">Editer</button>
                         <div style="margin-top: 10px">{{ include('episode/_delete_form.html.twig') }}</div>
                     </a>
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <div class="container-center">
                         <div class="container-comment-form">
                             <div class="row align-items-center justify-content-center">
@@ -61,6 +61,9 @@
                 <p>Nom: {{ comment.author.username }}</p>
                 <p>Commentaire: {{ comment.comment }}</p>
                 <p>Note: {{ comment.rate }}</p>
+                {% if app.user.email|default('undefined') == comment.author.email %}
+                    {{ include('comment/_delete_form.html.twig') }}
+                {% endif %}
             </div>
         {% endfor %}
     </div>

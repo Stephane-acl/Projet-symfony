@@ -37,3 +37,6 @@ https://www.loom.com/share/4973dfb2234c401897e80b7a4e396ede
 
 18 - Symfony : Envoi d’e-mail
 https://www.loom.com/share/808f8d3103e44c0ead3c6cf63da780f7
+
+20 - Symfony : Sécurisons nos routes.
+https://www.loom.com/share/f8bb6e387abb49638ef5e047f1fae2ea

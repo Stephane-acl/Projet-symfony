@@ -3,9 +3,11 @@
 {% block title %}New Actor{% endblock %}
 
 {% block body %}
-    <h1>Create new Actor</h1>
-
+    <h1>Ajouter un acteur</h1>
+<div class="container">
+<div class="row">
     {{ include('actor/_form.html.twig') }}
-
-    <a href="{{ path('actor_index') }}">back to list</a>
+</div>
+</div>
+    <a href="{{ path('actor_index') }}">Retour a la liste</a>
 {% endblock %}

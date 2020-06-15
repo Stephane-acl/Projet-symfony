@@ -21,8 +21,26 @@
                         Dreadful</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item"
-                       href="{{ path('wild_show', {'slug': "walking-dead" }) }}">Toutes
+                       href="{{ path('program_index') }}">Toutes
                         les séries</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" style="margin-left: 15px">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Saisons
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('season_index') }}">Toutes les saisons</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" style="margin-left: 15px">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Episodes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('episode_index') }}">Tout les épisodes</a>
                 </div>
             </li>
             <li class="nav-item dropdown" style="margin-left: 15px">
@@ -35,11 +53,15 @@
                        href="{{ path('wild_show_category', {'categoryName': 'horreur' }) }}">Horreur</a>
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Comédie</a>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('category_add') }}">Ajouter une catégorie</a>
+                    {% endif %}
                 </div>
             </li>
             <li style="margin-left: 15px">
                 <div>
-                    <a href="{{ path('admin_index') }}" class="nav-link-color">Admin</a>
+                    <a href="{{ path('actor_index') }}" class="nav-link-color">Acteurs</a>
                 </div>
             </li>
         </ul>

@@ -37,5 +37,14 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/program/new, roles: ROLE_ADMIN }
+        - { path: ^/season/new, roles: ROLE_ADMIN }
+        - { path: ^/episode/new, roles: ROLE_ADMIN }
+        - { path: ^/category/add, roles: ROLE_ADMIN }
+        - { path: ^/actor/new, roles: ROLE_ADMIN }
+
+    role_hierarchy:
+        ROLE_SUBSCRIBER: ROLE_USER
+        ROLE_ADMIN:  ROLE_SUBSCRIBER
 
 

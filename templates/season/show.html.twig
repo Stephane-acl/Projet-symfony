@@ -28,10 +28,12 @@
                         </tr>
                         </tbody>
                     </table>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a href="{{ path('season_edit', {'id': season.id}) }}">
                         <button class="btn btn-primary">Editer</button>
                     </a>
                     <div  style="margin-top: 10px">{{ include('season/_delete_form.html.twig') }}</div>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -3,15 +3,15 @@
 {% block title %}Actor index{% endblock %}
 
 {% block body %}
-    <h1>Actor index</h1>
-
+    <h1 class="text-center">Liste des acteurs</h1>
+<div class="container">
+    <div class="row">
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Slug</th>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Photo</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,10 +21,11 @@
                 <td>{{ actor.id }}</td>
                 <td>{{ actor.name }}</td>
                 <td>{{ actor.picture }}</td>
-                <td>{{ actor.slug }}</td>
                 <td>
-                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}">show</a>
-                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}">edit</a>
+                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}">voir</a>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}">editer</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -34,6 +35,9 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('actor_new') }}">Create new</a>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a href="{{ path('actor_new') }}">Ajouter un acteur</a>
+    {% endif %}
+</div>
+</div>
 {% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\Actor;
 use App\Form\ActorType;
 use App\Repository\ActorRepository;
 use App\Service\Slugify;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,13 +64,18 @@ class ActorController extends AbstractController
      */
     public function show(Actor $actor): Response
     {
-        return $this->render('actor/notification.html.twig', [
+        return $this->render('actor/show.html.twig', [
             'actor' => $actor,
         ]);
     }
 
     /**
      * @Route("/{slug}/edit", name="actor_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Actor $actor
+     * @param Slugify $slugify
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Actor $actor, Slugify $slugify): Response
     {
@@ -92,6 +98,10 @@ class ActorController extends AbstractController
 
     /**
      * @Route("/{id}", name="actor_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Actor $actor
+     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Actor $actor): Response
     {

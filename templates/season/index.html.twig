@@ -30,11 +30,13 @@
                                     <td>{{ season.description }}</td>
                                     <td>
                                        <p><a href="{{ path('season_show', {'id': season.id}) }}">
-                                            <button class="btn btn-primary">Voir</button></p>
-                                        </a>
+                                            <button class="btn btn-primary">Voir</button>
+                                        </a></p>
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                         <p><a href="{{ path('season_edit', {'id': season.id}) }}">
                                             <button class="btn btn-secondary">Editer</button>
                                         </a></p>
+                                        {% endif %}
                                     </td>
                                 </tr>
                             {% else %}
@@ -46,10 +48,12 @@
                         </table>
                     </div>
                 </div>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <p style="margin-top: 10px"><a href="{{ path('season_new') }}">
                         <button class="btn btn-primary">Créer une nouvelle saison</button>
                     </a></p>
-                <p><a href="{{ path('admin_index') }}">Retour au menu</a></p>
+                {% endif %}
+                <p><a href="{{ path('app_index') }}">Retour a l'acceuil</a></p>
             </div>
         </div>
     </div>

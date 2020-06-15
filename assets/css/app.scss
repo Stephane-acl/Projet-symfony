@@ -18,7 +18,7 @@ $theme-colors: (
     align-items: center;
     flex-direction: $direction;
 }
-
+//Nav bar
 .nav-link-color {
     color: $colorNavLink;
 }
@@ -27,15 +27,18 @@ $theme-colors: (
     color: $colorNavLink;
 }
 
+//Main title
 h1 {
     color: $primary;
     font-family: $titlefont;
 }
 
+//class to center a block
 .container-center {
     @include flexCenter(column);
 }
 
+//Container of comments
 .container-comment-form {
     border: 1px solid $primary;
     border-radius: 15px;
@@ -55,6 +58,8 @@ h1 {
 .title-comment {
     margin: 25px;
 }
+
+//Banner section
 
 
 @import "~bootstrap/scss/bootstrap";
