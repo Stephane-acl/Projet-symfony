@@ -40,3 +40,6 @@ https://www.loom.com/share/808f8d3103e44c0ead3c6cf63da780f7
 
 20 - Symfony : Sécurisons nos routes.
 https://www.loom.com/share/f8bb6e387abb49638ef5e047f1fae2ea
+
+21 - Symfony : Inscription d’un utilisateur
+https://www.loom.com/share/b2279f11e80c4bc6b4998d061f953032
