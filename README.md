@@ -43,3 +43,6 @@ https://www.loom.com/share/f8bb6e387abb49638ef5e047f1fae2ea
 
 21 - Symfony : Inscription d’un utilisateur
 https://www.loom.com/share/b2279f11e80c4bc6b4998d061f953032
+
+23 - Symfony : Sessions et messages flash
+https://www.loom.com/share/27eb65dec18b465189a067ba51ccb2db
