@@ -65,5 +65,10 @@ h1 {
     bottom: 0;
 }
 
+.column-actor {
+    width: 100%;
+    border: 1px solid $primary;
+}
+
 
 @import "~bootstrap/scss/bootstrap";

@@ -19,7 +19,8 @@
                                 <th>Image</th>
                                 <th>Pays</th>
                                 <th>Année</th>
-                                <th>actions</th>
+                                <th>Actions</th>
+                                <th>Acteurs</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -38,10 +39,17 @@
                                                 <button class="btn btn-primary">Voir</button>
                                             </a></p>
                                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                        <a href="{{ path('program_edit', {'slug': program.slug}) }}">
-                                            <button class="btn btn-secondary">Editer</button>
-                                        </a>
+                                            <a href="{{ path('program_edit', {'slug': program.slug}) }}">
+                                                <button class="btn btn-secondary">Editer</button>
+                                            </a>
                                         {% endif %}
+                                    </td>
+                                    <td class="column-actor">
+                                    {% for actor in program.actors %}
+                                        <li>{{ actor.name }}</li>
+                                    {% else %}
+                                        Cette série n'a aucun acteur
+                                    {% endfor %}
                                     </td>
                                 </tr>
                             {% else %}
@@ -54,11 +62,11 @@
                     </div>
                 </div>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <p style="margin-top: 10px"><a href="{{ path('program_new') }}">
-                        <button class="btn btn-primary">Créer une nouvelle série</button>
-                    </a></p>
+                    <p style="margin-top: 10px"><a href="{{ path('program_new') }}">
+                            <button class="btn btn-primary">Créer une nouvelle série</button>
+                        </a></p>
                 {% endif %}
-                <p><a href="{{ path('app_index') }}">Retour a l'acceuil</a> </p>
+                <p><a href="{{ path('app_index') }}">Retour a l'accueil</a></p>
             </div>
         </div>
     </div>
