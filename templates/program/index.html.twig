@@ -28,7 +28,10 @@
                                 <tr>
                                     <td>{{ program.id }}</td>
                                     <td>{{ program.category.name }}</td>
-                                    <td>{{ program.title }}</td>
+                                    <td class="title-programs">
+                                        {{ program.title }}
+                                        <img class="cross" src="{{ asset('/images/add.svg') }}" alt="croix">
+                                    </td>
                                     <td>{{ program.synopsis }}</td>
                                     <td><img class="align-self-start mr-3" height="280px" src="{{ program.poster }}"
                                              alt="{{ program.title }} poster"></td>
@@ -45,11 +48,11 @@
                                         {% endif %}
                                     </td>
                                     <td class="column-actor">
-                                    {% for actor in program.actors %}
-                                        <li>{{ actor.name }}</li>
-                                    {% else %}
-                                        Cette série n'a aucun acteur
-                                    {% endfor %}
+                                        {% for actor in program.actors %}
+                                            <li>{{ actor.name }}</li>
+                                        {% else %}
+                                            Cette série n'a aucun acteur
+                                        {% endfor %}
                                     </td>
                                 </tr>
                             {% else %}
