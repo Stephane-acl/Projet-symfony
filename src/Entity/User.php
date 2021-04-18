@@ -53,9 +53,15 @@ class User implements UserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Program::class, inversedBy="users")
+     */
+    private $programs;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->programs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -181,6 +187,32 @@ class User implements UserInterface
             if ($comment->getAuthor() === $this) {
                 $comment->setAuthor(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Program[]
+     */
+    public function getPrograms(): Collection
+    {
+        return $this->programs;
+    }
+
+    public function addProgram(Program $program): self
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs[] = $program;
+        }
+
+        return $this;
+    }
+
+    public function removeProgram(Program $program): self
+    {
+        if ($this->programs->contains($program)) {
+            $this->programs->removeElement($program);
         }
 
         return $this;
