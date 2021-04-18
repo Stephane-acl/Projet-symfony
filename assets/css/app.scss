@@ -1,0 +1,89 @@
+$primary: #193365;
+$secondary: #EFEFEF;
+$white: #FFF;
+$colorNavLink: #EFEFEF;
+
+// Fonts
+$titlefont: 'Roboto', cursive;
+$textfont: 'Montserrat', sans-serif;
+
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary
+);
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+//Nav bar
+.nav-link-color {
+    color: $colorNavLink;
+}
+
+.nav-link-color:hover {
+    color: $colorNavLink;
+}
+
+//Main title
+h1 {
+    color: $primary;
+    font-family: $titlefont;
+}
+
+//class to center a block
+.container-center {
+    @include flexCenter(column);
+}
+
+//Container of comments
+.container-comment-form {
+    border: 1px solid $primary;
+    border-radius: 15px;
+    width: 60%;
+    background-color: $primary;
+    color: $white;
+    padding: 15px;
+}
+
+.container-comment-list {
+    border: 1px solid $primary;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 45%;
+}
+
+.title-comment {
+    margin: 25px;
+}
+
+.link-register {
+    position: absolute;
+    left: 200px;
+    bottom: 0;
+}
+
+.column-actor {
+    width: 100%;
+    border: 1px solid $primary;
+}
+
+//INDEX PAGE PROGRAMS
+.table {
+    .title-programs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .cross {
+        height: 35px;
+        margin-left: 10px;
+    }
+}
+
+
+@import "~bootstrap/scss/bootstrap";

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Program{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="margin: 30px">Série {{ program.title }}</h1>
+    <div class="container-center">
+        <strong>Acteur/s :</strong>
+        <ul>
+            {% for actor in program.actors %}
+                <li><a href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ actor.name }}</a></li>
+            {% else %}
+                <li>Aucun acteur pour cette série</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="container h-100">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-12">
+                <div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>#</th>
+                            <td>{{ program.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Titre</th>
+                            <td>{{ program.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Synopsis</th>
+                            <td>{{ program.synopsis }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td><img src="{{ program.poster }}" alt="{{ program.title }}" height="280px"></td>
+                        </tr>
+                        <tr>
+                            <th>Pays</th>
+                            <td>{{ program.country }}</td>
+                        </tr>
+                        <tr>
+                            <th>Année</th>
+                            <td>{{ program.year }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ path('program_edit', {'slug': program.slug}) }}">
+                        <button class="btn btn-primary">Editer</button>
+                       <div  style="margin-top: 10px">{{ include('program/_delete_form.html.twig') }}</div>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('program_index') }}">Retour à la liste</a>
+
+{% endblock %}

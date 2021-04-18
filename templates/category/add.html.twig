@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <p><h1 class="text-center">Ajouter une catégorie</h1></p>
+
+    <div class="container h-100" style="margin-top: 35px">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-4">
+                <div class="card h-100 justify-content-center">
+                    <div>
+                        <table class="table col-12">
+                            <thead class="bg-primary">
+                            <tr>
+                                <th scope="col" class="nav-link-color">Vos catégories</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for category in categories %}
+                                <tr>
+                                    <td>{{ category.id }} / {{ category.name }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container h-100" style="margin-top: 40px">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-4">
+                <div>
+                    {{ form_start(form) }}
+                    <div class="col-12">{{ form_row(form.name) }}</div>
+                    <button class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+<a href="{{ path('app_index') }}">Retour a l'accueil</a>
+{% endblock %}

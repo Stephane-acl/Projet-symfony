@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <div class="card w-70">
+            <p class="card-body">
+                <h1 style="color:#193365;" class="text-center">Saison {{ season.number }} de {{ program.title }}</h1>
+                <p><h5 class="text-center"><strong>Année :</strong> {{ season.year }}</h5></p>
+                <p class="text-center">{{ season.description }}</p>
+                <hr/>
+                <p><h2 class="text-center">Liste des épisodes</h2></p>
+
+                {% for episode in episodes %}
+                    <div class="text-center">
+                        <h5>Episode {{ episode.number }}<a href="{{ path('wild_show_episode', {'id': episode.id }) }}">
+                            {{ episode.title }}</a></h5>
+                    </div>
+                {% endfor %}
+
+                <a href="{{ path('wild_show_program', {'slug': 'penny-dreadful'}) }}"><button type="submit" class="btn btn-primary">Retour</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

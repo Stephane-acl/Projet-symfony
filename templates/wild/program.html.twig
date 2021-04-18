@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ slug }}{% endblock %}
+
+{% block body %}
+    <div class="media">
+        <div class="card text-center">
+            <div class="card-header bg-secondary">
+                <h1>{{ program.title }}</h1>
+            </div>
+            <div class="card-body">
+
+                <section class="banner-homepage">
+                    <div class="homepage-banner-content-container">
+                        <h5 class="card-title ">
+                            <img height="500px" src="{{ program.poster }}" alt="{{ program.title }} poster">
+                        </h5>
+                    </div>
+                </section>
+                <p class="card-text">{{ program.synopsis }}</p>
+            </div>
+            <div class="card-footer bg-secondary">
+                <p><strong>Categorie :</strong> {{ program.category.name }}</p>
+                <p><strong>Pays :</strong> {{ program.country }}</p>
+                {% for season in seasons %}
+                    <a href="{{ path('wild_show_season', {'id': season.id}) }}">
+                        <button ype="button" class="btn btn-primary">Saison {{ season.number }}</button>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

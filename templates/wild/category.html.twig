@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for program in programs %}
+        <div class="media">
+            <img class="align-self-start mr-3" height="300px" src="{{ program.poster }}"
+                 alt="{{ program.title }} poster">
+            <div class="media-body">
+                <h1 class="mt-0">{{ program.id }} - {{ program.title }}</h1>
+                <p>{{ program.synopsis }}</p>
+                <p>Categorie : {{ categoryName }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}

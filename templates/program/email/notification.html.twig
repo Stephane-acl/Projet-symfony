@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Notifications</title>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&display=swap");
+</style>
+</head>
+
+{% block body %}
+    <h1 style="font-family: Roboto, cursive; color: #193365">
+        Découvrez maintenant votre nouvelle série :
+        <a href="http://127.0.0.1:8000{{ path('program_show', {'slug': program.slug}) }}">{{ program.title }} !</a>
+    </h1>
+{% endblock %}
+
+</html>

@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="{{ path('app_index') }}"><img src="{{ asset('/images/tv.svg') }}" alt="Logo tv !"
+                                                                height="50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link-color" href="{{ path('wild_index') }}"><strong>Wild séries</strong><span
+                            class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown" style="margin-left: 15px">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Séries
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('wild_show_program', {'slug': "penny-dreadful"}) }}">Penny
+                        Dreadful</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item"
+                       href="{{ path('program_index') }}">Toutes
+                        les séries</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" style="margin-left: 15px">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Saisons
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('season_index') }}">Toutes les saisons</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" style="margin-left: 15px">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Episodes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('episode_index') }}">Tout les épisodes</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" style="margin-left: 15px">
+                <a class="nav-link-color dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catégories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"
+                       href="{{ path('wild_show_category', {'categoryName': 'horreur' }) }}">Horreur</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Comédie</a>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('category_add') }}">Ajouter une catégorie</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li style="margin-left: 15px">
+                <div>
+                    <a href="{{ path('actor_index') }}" class="nav-link-color">Acteurs</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
+        <div style="margin-left: 15px">
+            {% if app.user %}
+                <a href="{{ path('show_profile', {'id': app.user.id }) }}">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                        Mon compte
+                    </button>
+                </a>
+                <a href="{{ path('app_logout') }}" class="nav-link-color">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Déconnexion</button>
+                </a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="nav-link-color">Connexion</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

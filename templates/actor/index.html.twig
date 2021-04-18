@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actor index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Liste des acteurs</h1>
+<div class="container">
+    <div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actor in actors %}
+            <tr>
+                <td>{{ actor.id }}</td>
+                <td>{{ actor.name }}</td>
+                <td>{{ actor.picture }}</td>
+                <td>
+                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}">voir</a>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}">editer</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a href="{{ path('actor_new') }}">Ajouter un acteur</a>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

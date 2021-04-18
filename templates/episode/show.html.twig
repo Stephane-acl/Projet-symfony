@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Episode{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="margin: 30px">Episode : {{ episode.title }}</h1>
+    <div class="container h-100">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-12">
+                <div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>#</th>
+                            <td>{{ episode.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Titre</th>
+                            <td>{{ episode.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numéro</th>
+                            <td>{{ episode.number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Synopsis</th>
+                            <td>{{ episode.synopsis }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td>{{ episode.poster }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">
+                        <button class="btn btn-primary">Editer</button>
+                        <div style="margin-top: 10px">{{ include('episode/_delete_form.html.twig') }}</div>
+                    </a>
+                    <div class="container-center">
+                        <div class="container-comment-form">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-8">
+                                        {{ form_start(form) }}
+                                        {{ form_widget(form) }}
+                                        <button class="btn btn-secondary btn-sm">{{ button_label|default('Envoyer') }}</button>
+                                        {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-center">
+        <h4 class="title-comment">Liste des commentaires</h4>
+        {% for comment in comments %}
+            <div class="container-comment-list text-center">
+                <p>Nom: {{ comment.author.username }}</p>
+                <p>Commentaire: {{ comment.comment }}</p>
+                <p>Note: {{ comment.rate }}</p>
+                {% if app.user.email|default('undefined') == comment.author.email %}
+                    {{ include('comment/_delete_form.html.twig') }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('episode_index') }}">Retour à la liste</a>
+
+{% endblock %}

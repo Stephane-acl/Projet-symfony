@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Episode index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="margin: 30px">Listes des épisodes</h1>
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-12">
+                <div class="card h-100 justify-content-center">
+                    <div>
+                        <table class="table">
+                            <thead class="bg-primary">
+                            <tr class="nav-link-color">
+                                <th>#</th>
+                                <th>Catégorie</th>
+                                <th>Série</th>
+                                <th>Saison</th>
+                                <th>Titre épisode</th>
+                                <th>Numéro épisode</th>
+                                <th>Synopsis</th>
+                                <th>Image</th>
+                                <th>actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for episode in episodes %}
+                                <tr>
+                                    <td>{{ episode.id }}</td>
+                                    <td>{{ episode.season.program.category.name }}</td>
+                                    <td>{{ episode.season.program.title }}</td>
+                                    <td>{{ episode.season.number}}</td>
+                                    <td>{{ episode.title }}</td>
+                                    <td>{{ episode.number }}</td>
+                                    <td>{{ episode.synopsis }}</td>
+                                    <td><img height="280px" src="{{ episode.poster }}" alt="{{ episode.title }}"></td>
+                                    <td>
+                                        <p><a href="{{ path('episode_show', {'slug': episode.slug}) }}">
+                                                <button class="btn btn-primary">Voir</button>
+                                            </a></p>
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <p><a href="{{ path('episode_edit', {'slug': episode.slug}) }}">
+                                                <button class="btn btn-secondary">Editer</button>
+                                            </a></p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="6">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <p style="margin-top: 10px"><a href="{{ path('episode_new') }}">
+                        <button class="btn btn-primary">Créer un épisode</button>
+                    </a></p>
+                {% endif %}
+                <p><a href="{{ path('app_index') }}">Retour a l'acceuil</a> </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
